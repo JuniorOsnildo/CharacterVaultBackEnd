@@ -1,0 +1,20 @@
+@CharacterVaulBack_HostAddress = http://localhost:5164
+
+POST {{CharacterVaulBack_HostAddress}}/Auth/login/
+Accept: application/json
+
+###
+
+POST {{CharacterVaulBack_HostAddress}}/Sheet/sheet/
+Content-Type: application/json
+
+{
+    "UserId": 1,
+    "name": "Jonas",
+    "Race": "elf",
+    "Origin": "thug",
+    "Class": "Rogue",
+    "Level": 3,
+    "HP": 18,
+    "MP": 9
+}
