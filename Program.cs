@@ -29,10 +29,13 @@ builder.Services.AddCors(options =>
 
 //Services
 builder.Services.AddTransient<ISheetService, SheetService>();
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<ISkillService, SkillService>();
 
 //Repositories
 builder.Services.AddTransient<ISheetRepository, SheetRepository>();
-
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<ISkillRepository, SkillRepository>();
 
 var app = builder.Build();
 

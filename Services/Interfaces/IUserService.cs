@@ -4,7 +4,7 @@ using CSharpFunctionalExtensions;
 
 namespace CharacterVaulBack.Services.Interfaces;
 
-public interface ISheetService
+public interface IUserService
 {
-    public Result<Sheet, string> CreateSheet(CreateSheetDto sheet);
+    public Result<User, string> CreateUser(CreateUserDto user);
 }

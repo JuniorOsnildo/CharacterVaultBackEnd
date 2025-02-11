@@ -5,16 +5,38 @@ Accept: application/json
 
 ###
 
+POST {{CharacterVaulBack_HostAddress}}/User/add/
+Content-Type: application/json
+
+{
+  "Username": "kakauli",
+  "Password": "samantavoltapramim",
+  "Email": "mmmmm@yes"
+}
+
+###
+
 POST {{CharacterVaulBack_HostAddress}}/Sheet/sheet/
 Content-Type: application/json
 
 {
-    "UserId": 1,
-    "name": "Jonas",
-    "Race": "elf",
-    "Origin": "thug",
-    "Class": "Rogue",
-    "Level": 3,
-    "HP": 18,
-    "MP": 9
+    "UserId": 8,
+    "Name": "louro",
+    "Race": "louro",
+    "Origin": "louroland",
+    "Class": "louro",
+    "Level": 1,
+    "HP": 2,
+    "MP": 100
+}
+
+###
+
+POST {{CharacterVaulBack_HostAddress}}/Skill/skill/
+Content-Type: application/json
+
+{
+  "Name": "loirar",
+  "Source": "blonde blonde",
+  "SheetId": 6
 }

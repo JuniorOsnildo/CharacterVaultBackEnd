@@ -12,7 +12,11 @@ public class SheetController(ISheetService sheetService) : ControllerBase
     [Route("sheet")]
     public IActionResult CreateSheet([FromBody] CreateSheetDto createSheetDto)
     {
-        sheetService.CreateSheet(createSheetDto);
-        return Ok();
+        var result = sheetService.CreateSheet(createSheetDto);
+        
+        return result.IsSuccess 
+            ? Ok(result) 
+            : BadRequest(result);
+        
     }
 }
