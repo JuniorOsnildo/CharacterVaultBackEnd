@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using CharacterVaulBack.DTOs;
+using CharacterVaulBack.DTOs.User;
 using CharacterVaulBack.Models;
 using CharacterVaulBack.Repositories.Interfaces;
 using CharacterVaulBack.Services.Interfaces;
@@ -28,6 +28,16 @@ public class UserService(IUserRepository userRepository) : IUserService
             failure => Result.Failure<User, string>(failure.Message)
         );
         
+    }
+
+    public Result<string, string> DeleteUser(DeleteUserDto userDto)
+    {
+        var result = userRepository.DeleteUser(userDto.UserId);
+
+        return result.Match(
+            success => Result.Success<string, string>(success),
+            failure => Result.Failure<string, string>(failure.Message)
+        );
     }
 
     private static string HashPassword(string password)

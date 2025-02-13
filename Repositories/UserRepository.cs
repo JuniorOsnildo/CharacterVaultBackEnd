@@ -1,9 +1,7 @@
 ﻿using System.Data.Common;
-using CharacterVaulBack.DTOs;
 using CharacterVaulBack.Models;
 using CharacterVaulBack.Models.Context;
 using CharacterVaulBack.Repositories.Interfaces;
-using CharacterVaulBack.Services;
 using CSharpFunctionalExtensions;
 
 namespace CharacterVaulBack.Repositories;
@@ -26,4 +24,23 @@ public class UserRepository(ConnectionContext context) : IUserRepository
         }
         
     }
+
+    public Result<string, DbException> DeleteUser(int userId)
+    {
+
+        var userRemove = context.Users.Find(userId)!;
+        context.Users.Remove(userRemove);
+
+        try
+        {
+            context.SaveChanges();
+            return Result.Success<string, DbException>("User deleted");
+        }
+        catch (DbException e)
+        {
+            return Result.Failure<string, DbException>(e);
+        }
+        
+    }
+    
 }

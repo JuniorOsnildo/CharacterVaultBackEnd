@@ -5,38 +5,74 @@ Accept: application/json
 
 ###
 
-POST {{CharacterVaulBack_HostAddress}}/User/add/
+POST {{CharacterVaulBack_HostAddress}}/User/users/
 Content-Type: application/json
 
 {
-  "Username": "kakauli",
+  "Username": "seguura",
   "Password": "samantavoltapramim",
   "Email": "mmmmm@yes"
 }
 
 ###
 
-POST {{CharacterVaulBack_HostAddress}}/Sheet/sheet/
+POST {{CharacterVaulBack_HostAddress}}/Sheet/sheets/
 Content-Type: application/json
 
 {
-    "UserId": 8,
+    "UserId": 1,
     "Name": "louro",
     "Race": "louro",
     "Origin": "louroland",
-    "Class": "louro",
     "Level": 1,
     "HP": 2,
     "MP": 100
-}
+} 
 
 ###
 
-POST {{CharacterVaulBack_HostAddress}}/Skill/skill/
+POST {{CharacterVaulBack_HostAddress}}/Skill/skills/
 Content-Type: application/json
 
 {
   "Name": "loirar",
   "Source": "blonde blonde",
-  "SheetId": 6
+  "SheetId": 1
+}
+
+###
+
+DELETE {{CharacterVaulBack_HostAddress}}/Sheet/delete
+Content-Type: application/json
+
+###
+
+DELETE {{CharacterVaulBack_HostAddress}}/Skill/delete
+Content-Type: application/json
+
+###
+
+DELETE {{CharacterVaulBack_HostAddress}}/User/delete
+Content-Type: application/json
+
+###
+
+PATCH {{CharacterVaulBack_HostAddress}}/Skill/update
+Content-Type: application/json
+
+{
+  "Source": "teeeeeeeeeeeee",
+  "SkillId": 1,
+  "SheetId": 1
+}
+
+###
+
+PATCH {{CharacterVaulBack_HostAddress}}/Sheet/update
+Content-Type: application/json
+
+{
+  "Class": "<X>",
+  "UserId": 1,
+  "SheetId": 2
 }

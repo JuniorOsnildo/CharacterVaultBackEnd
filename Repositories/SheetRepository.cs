@@ -19,12 +19,65 @@ public class SheetRepository(ConnectionContext context) : ISheetRepository
             context.SaveChanges();
             return Result.Success<Sheet, DbException>(newSheet.Entity);
         }
-        catch (Exception e)
+        catch (DbException e)
         {
-            Console.WriteLine(e);
-            throw;
+            return Result.Failure<Sheet, DbException>(e);
         }
         
         
+    }
+
+    public Result<string, DbException> DeleteSheet(int id)
+    {
+
+        var sheetRemove = context.Sheets.Find(id)!;
+        context.Sheets.Remove(sheetRemove);
+
+        try
+        {
+            context.SaveChanges();
+            return Result.Success<string, DbException>("Sheet deleted");
+        }
+        catch (DbException e)
+        {
+            return Result.Failure<string, DbException>(e);
+        }
+
+    }
+    
+    public Result<Sheet, DbException> UpdateSheet(Sheet sheet)
+    {
+        
+        var sheetUpdate = context.Sheets.Find(sheet.Id);
+
+        try
+        {
+            if (sheetUpdate is not null)
+            {
+                context.Entry(sheetUpdate).CurrentValues.SetValues(sheet);
+                context.SaveChanges();
+            }
+        }
+        catch (DbException e)
+        {
+            return Result.Failure<Sheet, DbException>(e);
+        }
+        
+        return Result.Success<Sheet, DbException>(sheet);
+    }
+
+
+    public Result<Sheet, DbException> GetSheet(int id)
+    {
+        var sheet = context.Sheets.Find(id);
+
+        try
+        {
+            return Result.Success<Sheet, DbException>(sheet);
+        }
+        catch (DbException e)
+        {
+            return Result.Failure<Sheet, DbException>(e);
+        }
     }
 }

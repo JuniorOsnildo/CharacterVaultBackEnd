@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CharacterVaulBack.DTOs.User;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CharacterVaulBack.Controllers;
 
@@ -8,7 +10,7 @@ public class AuthController : ControllerBase
 {
     [HttpPost]
     [Route("login")]
-    public IActionResult Login()
+    public IActionResult Login([FromBody] UserLoginDto userLoginDto)
     {
         return Ok();
     }

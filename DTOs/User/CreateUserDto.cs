@@ -1,4 +1,4 @@
-﻿namespace CharacterVaulBack.DTOs;
+﻿namespace CharacterVaulBack.DTOs.User;
 
 public class CreateUserDto
 {
