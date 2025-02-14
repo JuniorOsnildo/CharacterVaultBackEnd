@@ -19,6 +19,12 @@ public class SheetService(ISheetRepository sheetRepository) : ISheetService
             Level = sheetDto.Level ?? 0 ,
             HP = sheetDto.Hp ?? 0,
             MP = sheetDto.Mp ?? 0,
+            strength = sheetDto.strength ?? 0,
+            dexterity = sheetDto.dexterity ?? 0,
+            constitution = sheetDto.constitution ?? 0,
+            intelligence = sheetDto.intelligence ?? 0,
+            wisdom = sheetDto.wisdom ?? 0,
+            charisma = sheetDto.charisma ?? 0,
             UserId = sheetDto.UserId,
         };
 
@@ -56,6 +62,12 @@ public class SheetService(ISheetRepository sheetRepository) : ISheetService
             Level = sheetDto.Level ?? existingSheet.Level,
             HP = sheetDto.Hp ?? existingSheet.HP,
             MP = sheetDto.Mp ?? existingSheet.MP,
+            strength = sheetDto.strength ?? existingSheet.strength,
+            dexterity = sheetDto.dexterity ?? existingSheet.dexterity,
+            constitution = sheetDto.constitution ?? existingSheet.constitution,
+            intelligence = sheetDto.intelligence ?? existingSheet.intelligence,
+            wisdom = sheetDto.wisdom ?? existingSheet.wisdom,
+            charisma = sheetDto.charisma ?? existingSheet.charisma,
             UserId = sheetDto.UserId,
             Id = sheetDto.SheetId
         };

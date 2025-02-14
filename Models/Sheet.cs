@@ -13,6 +13,12 @@ public class Sheet
     public int Level { get; set; }
     public int HP { get; set; }
     public int MP { get; set; }
+    public int strength { get; set; }
+    public int dexterity { get; set; }
+    public int constitution { get; set; }
+    public int intelligence { get; set; }
+    public int wisdom { get; set; }
+    public int charisma { get; set; }
     public int UserId { get; set; }
     public User User { get; set; }
     

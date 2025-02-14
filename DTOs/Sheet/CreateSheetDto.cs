@@ -9,5 +9,11 @@ public class CreateSheetDto
     public int? Level { get; set; }
     public int? Hp { get; set; }
     public int? Mp { get; set; }
+    public int? strength { get; set; }
+    public int? dexterity { get; set; }
+    public int? constitution { get; set; }
+    public int? intelligence { get; set; }
+    public int? wisdom { get; set; }
+    public int? charisma { get; set; }
     public int UserId { get; set; }
 }
