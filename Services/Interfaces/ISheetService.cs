@@ -11,4 +11,6 @@ public interface ISheetService
     public Result<string, string> DeleteSheet(DeleteSheetDto sheet);
 
     public Result<Sheet, string> UpdateSheet(UpdateSheetDto sheetDto);
+    
+    public Result<Sheet, string> GetSheet(GetSheetDto sheet);
 }

@@ -73,7 +73,7 @@ public class SheetRepository(ConnectionContext context) : ISheetRepository
 
         try
         {
-            return Result.Success<Sheet, DbException>(sheet);
+            return Result.Success<Sheet, DbException>(sheet!);
         }
         catch (DbException e)
         {
