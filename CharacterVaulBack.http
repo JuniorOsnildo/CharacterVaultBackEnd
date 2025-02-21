@@ -33,7 +33,7 @@ Content-Type: application/json
 
 POST {{CharacterVaulBack_HostAddress}}/Skill/skills/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtQG0uTSIsImp0aSI6IjM4YWJiNzRkLTU3OWUtNDQxNS1iNjc0LWM1Nzk3NDYzY2VhYSIsIm5iZiI6MTc0MDEwNDk0MiwiZXhwIjoxNzQwMTkxMzQyLCJpYXQiOjE3NDAxMDQ5NDIsImlzcyI6IkNoYXJhY3RlclZhdWx0QmFjayIsImF1ZCI6IkNoYXJhY3RlclZhdWx0RnJvbnQifQ.XtWI7tUZg6UMJFbxjNfq8otuTuIipD0QKn4LCGtThrY
+Authorization:Bearer <token>
 
 {
   "Name": "loirar",

@@ -47,7 +47,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "AllowAnyOrigin",
         policy =>
         {
-            policy.AllowAnyOrigin() //mudar depois
+            policy.AllowAnyOrigin() //https://charactervault.starvingdevelopers.tech/
                 .AllowAnyMethod()
                 .AllowAnyHeader();
         });
