@@ -1,17 +1,27 @@
 ﻿using CharacterVaulBack.DTOs.User;
-using Microsoft.AspNetCore.Authorization;
+using CharacterVaulBack.Jwt;
+using CharacterVaulBack.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CharacterVaulBack.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class AuthController : ControllerBase
+public class AuthController(IAuthService authService, IConfiguration configuration) : ControllerBase
 {
     [HttpPost]
     [Route("login")]
     public IActionResult Login([FromBody] UserLoginDto userLoginDto)
     {
-        return Ok();
+        var jwtHandler = new JwtHandler(configuration);
+        
+        var dadada = authService.UserLogin(userLoginDto);
+
+        if (dadada.IsSuccess)
+        {
+            return Ok(jwtHandler.GenerateToken(dadada.Value));
+        }
+        
+        return Unauthorized();
     }
 }

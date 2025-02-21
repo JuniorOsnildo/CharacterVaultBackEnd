@@ -8,6 +8,7 @@ namespace CharacterVaulBack.Controllers;
 
 
 [ApiController]
+[Authorize]
 [Route("[controller]")]
 
 public class SkillController(ISkillService skillService) : ControllerBase

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CharacterVaulBack.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("[controller]")]
 public class SheetController(ISheetService sheetService) : ControllerBase
 {

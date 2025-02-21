@@ -43,12 +43,9 @@ public class UserService(IUserRepository userRepository) : IUserService
     private static string HashPassword(string password)
     {
         var passwordBytes = Encoding.UTF8.GetBytes(password);
-        var salt = new byte[128 / 8];
-        new Random().NextBytes(salt);
         
         var argon2 = new Argon2id(passwordBytes);
         
-        argon2.Salt = salt;
         argon2.DegreeOfParallelism = 3;
         argon2.MemorySize = 128*1024;
         argon2.Iterations = 4;

@@ -8,7 +8,7 @@ namespace CharacterVaulBack.Jwt;
 
 public class JwtHandler(IConfiguration configuration)
 {
-    public string GenerateToken(string username)
+    public string GenerateToken(string email)
     {
         // inferno parte 2
         var jwtSettings = configuration.GetSection("Jwt");
@@ -16,7 +16,7 @@ public class JwtHandler(IConfiguration configuration)
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, username),
+            new Claim(JwtRegisteredClaimNames.Sub, email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         };
 

@@ -1,4 +1,5 @@
 using System.Text;
+using CharacterVaulBack.Jwt;
 using CharacterVaulBack.Models.Context;
 using CharacterVaulBack.Repositories;
 using CharacterVaulBack.Repositories.Interfaces;
@@ -56,11 +57,13 @@ builder.Services.AddCors(options =>
 builder.Services.AddTransient<ISheetService, SheetService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<ISkillService, SkillService>();
+builder.Services.AddTransient<IAuthService, AuthService>();
 
 //Repositories
 builder.Services.AddTransient<ISheetRepository, SheetRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<ISkillRepository, SkillRepository>();
+builder.Services.AddTransient<IAuthRepository, AuthRepository>();
 
 var app = builder.Build();
 

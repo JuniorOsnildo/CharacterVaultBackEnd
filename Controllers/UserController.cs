@@ -24,6 +24,7 @@ public class UserController(IUserService userService) : ControllerBase
     }
 
     [HttpDelete]
+    [Authorize]
     [Route("delete")]
     public IActionResult DeleteUser([FromBody] DeleteUserDto deleteUserDto)
     {
@@ -33,6 +34,4 @@ public class UserController(IUserService userService) : ControllerBase
             ? Ok(result.Value)
             : BadRequest(result.Error);
     }
-    
-    
 }
