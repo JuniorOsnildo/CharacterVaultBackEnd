@@ -7,5 +7,5 @@ namespace CharacterVaulBack.Services.Interfaces;
 
 public interface IAuthService
 {
-    public Result<string, bool> UserLogin(UserLoginDto user);
+    public Result<User, bool> UserLogin(UserLoginDto user);
 }

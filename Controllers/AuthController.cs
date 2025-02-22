@@ -14,14 +14,18 @@ public class AuthController(IAuthService authService, IConfiguration configurati
     public IActionResult Login([FromBody] UserLoginDto userLoginDto)
     {
         var jwtHandler = new JwtHandler(configuration);
-        
         var dadada = authService.UserLogin(userLoginDto);
 
-        if (dadada.IsSuccess)
+
+        if (!dadada.IsSuccess) return Unauthorized();
+        var userId = dadada.Value.Id;
+        var token = jwtHandler.GenerateToken(dadada.Value.Email);
+            
+        return Ok(new
         {
-            return Ok(jwtHandler.GenerateToken(dadada.Value));
-        }
-        
-        return Unauthorized();
+            UserId = userId,
+            Token = token
+        });
+
     }
 }

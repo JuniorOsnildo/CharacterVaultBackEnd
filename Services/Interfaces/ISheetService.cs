@@ -13,4 +13,6 @@ public interface ISheetService
     public Result<Sheet, string> UpdateSheet(UpdateSheetDto sheetDto);
     
     public Result<Sheet, string> GetSheet(GetSheetDto sheet);
+
+    public Result<int[], string> GetAllSheetIds(GetAllSheetsDto getAllSheetsDto);
 }

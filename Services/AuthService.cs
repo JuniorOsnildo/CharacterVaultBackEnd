@@ -10,17 +10,17 @@ namespace CharacterVaulBack.Services;
 
 public class AuthService(IAuthRepository authRepository) : IAuthService
 {
-    public Result<string, bool> UserLogin(UserLoginDto user)
+    public Result<User, bool> UserLogin(UserLoginDto user)
     {
         
         var result = authRepository.UserLogin(user.Email);
         
-        if (result.Value is null) return Result.Failure<string, bool>(false);
+        if (result.Value is null) return Result.Failure<User, bool>(false);
         var loginUserPasswordHash = HashPassword(user.Password);
 
         return loginUserPasswordHash != result.Value.Password
-            ? Result.Failure<string, bool>(false)
-            : Result.Success<string, bool>(result.Value.Email);
+            ? Result.Failure<User, bool>(false)
+            : Result.Success<User, bool>(result.Value);
 
     }
     

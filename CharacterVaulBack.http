@@ -1,3 +1,4 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwianRpIjoiMzFjMzVmNzAtNjcxMC00N2Q4LTg4MGYtODQwNzg5YTNiZTMxIiwibmJmIjoxNzQwMjI5MjU2LCJleHAiOjE3NDAzMTU2NTYsImlhdCI6MTc0MDIyOTI1NiwiaXNzIjoiQ2hhcmFjdGVyVmF1bHRCYWNrIiwiYXVkIjoiQ2hhcmFjdGVyVmF1bHRGcm9udCJ9.LiLu5oOQ6vTtLg95A5QWK77l12GhtbaTgy_9bNrY5ng
 @CharacterVaulBack_HostAddress = http://localhost:5164
 
 POST {{CharacterVaulBack_HostAddress}}/Auth/login/
@@ -16,11 +17,11 @@ Content-Type: application/json
 
 ###
 
-POST {{CharacterVaulBack_HostAddress}}/Sheet/sheets/
+POST {{CharacterVaulBack_HostAddress}}/{{token}}/Sheet/sheets/
 Content-Type: application/json
 
 {
-    "UserId": 1,
+    "UserId": 4,
     "Name": "louro",
     "Race": "louro",
     "Origin": "louroland",
@@ -43,8 +44,14 @@ Authorization:Bearer <token>
 
 ###
 
-DELETE {{CharacterVaulBack_HostAddress}}/Sheet/delete
+DELETE {{CharacterVaulBack_HostAddress}}/{{token}}/Sheet/delete
 Content-Type: application/json
+
+{
+  "SheetId": 3,
+  "UserId": 4
+}
+
 
 ###
 
@@ -84,7 +91,7 @@ POST {{CharacterVaulBack_HostAddress}}/Auth/login
 Content-Type: application/json
 
 {
-  "Email": "m@m.M",
-  "Password": "p"
+  "Email": "1",
+  "Password": "1"
 }
 

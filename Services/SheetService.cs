@@ -86,5 +86,15 @@ public class SheetService(ISheetRepository sheetRepository) : ISheetService
             failure => Result.Failure<Sheet, string>(failure.Message)
         );
     }
+
+    public Result<int[], string> GetAllSheetIds(GetAllSheetsDto getAllSheetsDto)
+    {
+        var result = sheetRepository.GetAllSheetIds(getAllSheetsDto.UserId);
+
+        return result.Match(
+            success => Result.Success<int[], string>(success),
+            failure => Result.Failure<int[], string>(failure.Message)
+        );
+    }
     
 }

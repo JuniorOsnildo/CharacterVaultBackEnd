@@ -55,5 +55,16 @@ public class SheetController(ISheetService sheetService) : ControllerBase
             : BadRequest(result.Error);
     }
     
+    [HttpPost]
+    [Route("getIds")]
+    public IActionResult GetAllSheets([FromQuery] GetAllSheetsDto getAllSheetsDto)
+    {
+        var result = sheetService.GetAllSheetIds(getAllSheetsDto);
+        
+        return result.IsSuccess
+            ? Ok(result.Value)
+            : BadRequest(result.Error);
+    }
+    
 }
 

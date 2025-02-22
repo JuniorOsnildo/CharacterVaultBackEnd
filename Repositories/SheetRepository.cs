@@ -4,6 +4,7 @@ using CharacterVaulBack.Models;
 using CharacterVaulBack.Models.Context;
 using CharacterVaulBack.Repositories.Interfaces;
 using CSharpFunctionalExtensions;
+using Microsoft.AspNetCore.Components.Sections;
 
 namespace CharacterVaulBack.Repositories;
 
@@ -79,5 +80,27 @@ public class SheetRepository(ConnectionContext context) : ISheetRepository
         {
             return Result.Failure<Sheet, DbException>(e);
         }
+    }
+
+    public Result<int[], DbException> GetAllSheetIds(int userId)
+    {
+        var user = context.Users.Find(userId)!;
+        
+        var sheets = context.Sheets.
+            Where(s => s.UserId == userId).
+            Select(s => s.Id).
+            ToArray();
+        Console.WriteLine(userId); 
+        
+
+        try
+        {
+            return Result.Success<int[], DbException>(sheets);
+        }
+        catch (DbException e)
+        {
+            return Result.Failure<int[], DbException>(e);
+        }
+        
     }
 }
