@@ -56,8 +56,8 @@ public class SheetController(ISheetService sheetService) : ControllerBase
     }
     
     [HttpPost]
-    [Route("getIds")]
-    public IActionResult GetAllSheets([FromQuery] GetAllSheetsDto getAllSheetsDto)
+    [Route("getAll")]
+    public IActionResult GetAllSheets([FromBody] GetAllSheetsDto getAllSheetsDto)
     {
         var result = sheetService.GetAllSheetIds(getAllSheetsDto);
         

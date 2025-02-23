@@ -82,24 +82,23 @@ public class SheetRepository(ConnectionContext context) : ISheetRepository
         }
     }
 
-    public Result<int[], DbException> GetAllSheetIds(int userId)
+    public Result<Sheet[], DbException> GetAllSheetIds(int userId)
     {
         var user = context.Users.Find(userId)!;
         
         var sheets = context.Sheets.
             Where(s => s.UserId == userId).
-            Select(s => s.Id).
+            Select(s => s).
             ToArray();
-        Console.WriteLine(userId); 
         
 
         try
         {
-            return Result.Success<int[], DbException>(sheets);
+            return Result.Success<Sheet[], DbException>(sheets);
         }
         catch (DbException e)
         {
-            return Result.Failure<int[], DbException>(e);
+            return Result.Failure<Sheet[], DbException>(e);
         }
         
     }

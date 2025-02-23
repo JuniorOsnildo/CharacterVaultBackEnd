@@ -87,13 +87,13 @@ public class SheetService(ISheetRepository sheetRepository) : ISheetService
         );
     }
 
-    public Result<int[], string> GetAllSheetIds(GetAllSheetsDto getAllSheetsDto)
+    public Result<Sheet[], string> GetAllSheetIds(GetAllSheetsDto getAllSheetsDto)
     {
         var result = sheetRepository.GetAllSheetIds(getAllSheetsDto.UserId);
 
         return result.Match(
-            success => Result.Success<int[], string>(success),
-            failure => Result.Failure<int[], string>(failure.Message)
+            success => Result.Success<Sheet[], string>(success),
+            failure => Result.Failure<Sheet[], string>(failure.Message)
         );
     }
     

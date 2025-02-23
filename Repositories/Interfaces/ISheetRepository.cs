@@ -14,5 +14,5 @@ public interface ISheetRepository
 
     public Result<Sheet, DbException> UpdateSheet(Sheet sheet);
 
-    public Result<int[], DbException> GetAllSheetIds(int userId);
+    public Result<Sheet[], DbException> GetAllSheetIds(int userId);
 }

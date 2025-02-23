@@ -14,5 +14,5 @@ public interface ISheetService
     
     public Result<Sheet, string> GetSheet(GetSheetDto sheet);
 
-    public Result<int[], string> GetAllSheetIds(GetAllSheetsDto getAllSheetsDto);
+    public Result<Sheet[], string> GetAllSheetIds(GetAllSheetsDto getAllSheetsDto);
 }
