@@ -36,10 +36,10 @@ public class SheetService(ISheetRepository sheetRepository) : ISheetService
         );
     }
 
-    public Result<string, string> DeleteSheet(DeleteSheetDto sheetDto)
+    public Result<string, string> DeleteSheet(int sheetId)
     {
 
-        var result = sheetRepository.DeleteSheet(sheetDto.SheetId);
+        var result = sheetRepository.DeleteSheet(sheetId);
  
         return result.Match(
             success => Result.Success<string, string>(success),

@@ -8,7 +8,7 @@ public interface ISheetService
 {
     public Result<Sheet, string> CreateSheet(CreateSheetDto sheet);
     
-    public Result<string, string> DeleteSheet(DeleteSheetDto sheet);
+    public Result<string, string> DeleteSheet(int sheetId);
 
     public Result<Sheet, string> UpdateSheet(UpdateSheetDto sheetDto);
     

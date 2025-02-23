@@ -23,10 +23,10 @@ public class SheetController(ISheetService sheetService) : ControllerBase
     }
 
     [HttpDelete]
-    [Route("delete")]
-    public IActionResult DeleteSheet([FromBody] DeleteSheetDto deleteSheetDto)
+    [Route("delete/{sheetId}")]
+    public IActionResult DeleteSheet(int sheetId)
     {
-        var result = sheetService.DeleteSheet(deleteSheetDto);
+        var result = sheetService.DeleteSheet(sheetId);
         
         return result.IsSuccess
             ? Ok(result.Value)
