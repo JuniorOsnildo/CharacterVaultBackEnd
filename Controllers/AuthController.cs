@@ -9,17 +9,19 @@ namespace CharacterVaulBack.Controllers;
 [Route("[controller]")]
 public class AuthController(IAuthService authService, IConfiguration configuration) : ControllerBase
 {
+    //Rota de login
     [HttpPost]
     [Route("login")]
     public IActionResult Login([FromBody] UserLoginDto userLoginDto)
     {
+        
         var jwtHandler = new JwtHandler(configuration);
-        var dadada = authService.UserLogin(userLoginDto);
+        var autenticacao = authService.UserLogin(userLoginDto);
 
-
-        if (!dadada.IsSuccess) return Unauthorized();
-        var userId = dadada.Value.Id;
-        var token = jwtHandler.GenerateToken(dadada.Value.Email);
+        //VALIDA O USUARIO E CRIA UM JAVA TOKEN PARA ENVIO
+        if (!autenticacao.IsSuccess) return Unauthorized();
+        var userId = autenticacao.Value.Id;
+        var token = jwtHandler.GenerateToken(autenticacao.Value.Email);
             
         return Ok(new
         {

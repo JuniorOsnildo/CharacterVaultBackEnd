@@ -45,5 +45,4 @@ public class SkillController(ISkillService skillService) : ControllerBase
             ? Ok(result.Value)
             : BadRequest(result.Error);
     }
-    
 }

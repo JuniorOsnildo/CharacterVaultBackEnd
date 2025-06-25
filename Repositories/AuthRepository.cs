@@ -11,6 +11,7 @@ public class AuthRepository(ConnectionContext context) : IAuthRepository
 {
     public Result<User, DbException> UserLogin(string email)
     {
+        //ENCONTRA O USUARIO COM BASE NO EMAIL
         var user = context.Users.FirstOrDefault(u => u.Email == email);
 
         try

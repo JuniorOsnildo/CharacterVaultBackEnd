@@ -12,6 +12,7 @@ public class UserService(IUserRepository userRepository) : IUserService
 {
     public Result<User, string> CreateUser(CreateUserDto userDto)
     {
+        //APLICA HASH A SENHA FORNECIDA
         var hashedPassword = HashPassword(userDto.Password);
         
         var newUser = new User

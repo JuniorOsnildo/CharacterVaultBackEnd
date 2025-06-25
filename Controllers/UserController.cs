@@ -34,4 +34,5 @@ public class UserController(IUserService userService) : ControllerBase
             ? Ok(result.Value)
             : BadRequest(result.Error);
     }
+    
 }

@@ -17,7 +17,8 @@ public class AuthService(IAuthRepository authRepository) : IAuthService
         
         if (result.Value is null) return Result.Failure<User, bool>(false);
         var loginUserPasswordHash = HashPassword(user.Password);
-
+        
+        //VALIDA A SENHA DO USUARIO
         return loginUserPasswordHash != result.Value.Password
             ? Result.Failure<User, bool>(false)
             : Result.Success<User, bool>(result.Value);
@@ -26,6 +27,7 @@ public class AuthService(IAuthRepository authRepository) : IAuthService
     
     private static string HashPassword(string password)
     {
+        //APLICA HASH A SENHA DO USUARIO
         var passwordBytes = Encoding.UTF8.GetBytes(password);
         
         var argon2 = new Argon2id(passwordBytes);

@@ -65,6 +65,5 @@ public class SheetController(ISheetService sheetService) : ControllerBase
             ? Ok(result.Value)
             : BadRequest(result.Error);
     }
-    
 }
 
